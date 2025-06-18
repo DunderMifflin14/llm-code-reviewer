@@ -8,17 +8,10 @@ app = FastAPI()
 # Create an instance of the OpenAI client
 client = OpenAIClient()
 
-
-
-
-
 # Define the expected structure of the incoming request using Pydantic
 class CodeReviewRequest(BaseModel):
     code: str          # The code snippet to review
     language: str      # Programming language of the code (e.g., "python", "sql")
-
-
-
 
 
 # Define a POST endpoint at "/review-code/"

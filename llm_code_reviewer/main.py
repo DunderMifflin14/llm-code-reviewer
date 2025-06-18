@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from llm_code_reviewer.api import review_code_endpoint, review_code
-from llm_code_reviewer.openai_client import CodeReviewRequest  
+from llm_code_reviewer.api import review_code, CodeReviewRequest
 
 app = FastAPI()
 

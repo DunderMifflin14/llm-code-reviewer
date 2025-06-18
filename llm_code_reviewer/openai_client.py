@@ -24,7 +24,7 @@ class OpenAIClient:
         openai.api_key = self.api_key
 
 
-    def get_completion(self, prompt: str, model: str = "gpt-4o-mini", max_tokens: int = 500) -> str:
+    def get_completion(self, prompt: str, model: str = "gpt-4o", max_tokens: int = 500) -> str:
         """
         Send prompt to OpenAI API and return the generated completion text.
 
@@ -36,7 +36,8 @@ class OpenAIClient:
         Returns:
             str: Generated text completion from the model.
         """
-        response = openai.ChatCompletion.create(
+        client = openai.OpenAI(api_key=self.api_key)
+        response = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             max_tokens=max_tokens,
